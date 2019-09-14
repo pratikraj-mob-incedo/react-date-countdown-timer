@@ -401,11 +401,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var calculateStateFromProps = function calculateStateFromProps(props) {
     var dateTo = props.dateTo,
         numberOfFigures = props.numberOfFigures,
-        mostSignificantFigure = props.mostSignificantFigure;
+        mostSignificantFigure = props.mostSignificantFigure,
+        countDown = props.countDown;
 
-    var currentDate = new Date();
-    var targetDate = new Date(dateTo);
-    var diff = targetDate - currentDate;
+    var diff = countDown ? countDown : new Date(dateTo) - new Date();
     var significance = ['year', 'month', 'day', 'hour', 'min', 'sec'];
 
     var year = Math.floor(diff / 31104000000); // time diff in years

@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const calculateStateFromProps = (props) => {
-    let { dateTo, numberOfFigures, mostSignificantFigure } = props;
-    const currentDate = new Date();
-    const targetDate = new Date(dateTo);
-    const diff = targetDate-currentDate;
+    let { dateTo, numberOfFigures, mostSignificantFigure, countDown } = props;
+    const diff = countDown ? countDown : new Date(dateTo) - new Date()
     var significance = ['year','month','day','hour','min','sec'];
 
     let year= Math.floor(diff/31104000000);// time diff in years
